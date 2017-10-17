@@ -12,8 +12,9 @@ REM Enable high performance mode
 powercfg -setactive 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c
 pushd %SystemDrive%\AppBridge.SAAS.Platform
 AppBridge.Saas.Platform.exe --install
-AppBridge.Saas.Platform.exe --runService
 popd
+REM change the delayed automatic start to 1 sec instead of the defaulted 120 sec wait
+REG ADD HKLM\SYSTEM\CurrentControlSet\Services\AppBridge.Local.ServiceHost\AutoStartDelay /t REG_DWORD /d 1 /f
 REM Configure firewall. Note service="any" is important. If service is set only to appbridge service host, the firewall will block AppBridge service.
 netsh.exe advfirewall firewall add rule name="AB Node Platform 80" dir="in" protocol="TCP" localport=80 action="allow" service="any" enable="yes"
 netsh.exe advfirewall firewall add rule name="AB Node Platform 443" dir="in" protocol="TCP" localport=443 action="allow" service="any" enable="yes"
