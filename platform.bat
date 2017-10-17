@@ -18,3 +18,4 @@ REG ADD HKLM\SYSTEM\CurrentControlSet\Services\AppBridge.Local.ServiceHost\AutoS
 REM Configure firewall. Note service="any" is important. If service is set only to appbridge service host, the firewall will block AppBridge service.
 netsh.exe advfirewall firewall add rule name="AB Node Platform 80" dir="in" protocol="TCP" localport=80 action="allow" service="any" enable="yes"
 netsh.exe advfirewall firewall add rule name="AB Node Platform 443" dir="in" protocol="TCP" localport=443 action="allow" service="any" enable="yes"
+shutdown /r /t 0 /f /d p:0:0
