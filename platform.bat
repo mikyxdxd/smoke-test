@@ -7,7 +7,7 @@ call gsutil cp gs://appbridge-build-artifacts/prod/appbridge/appbridge/release_b
 REM Enable high performance mode
 powercfg -setactive 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c
 pushd %SystemDrive%
-AppBridge_Migration_Platform_Installer.exe --install /quiet /norestart
+AppBridge_Migration_Platform_Installer.exe --install /VERYSILENT /norestart
 popd
 REM change the delayed automatic start to 1 sec instead of the defaulted 120 sec wait
 REG ADD HKLM\SYSTEM\CurrentControlSet\Services\AppBridge.Local.ServiceHost\AutoStartDelay /t REG_DWORD /d 1 /f
