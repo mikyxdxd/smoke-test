@@ -15,9 +15,4 @@ popd
 sc config "AppBridge.Local.ServiceHost" start=auto
 sc start "AppBridge.Local.ServiceHost"
 
-
-netsh.exe advfirewall firewall add rule name="AB Node Platform 5131" dir="in" protocol="TCP" localport=5131 action="allow" service="any" enable="yes"
-netsh.exe advfirewall firewall add rule name="AB Node Platform 443" dir="in" protocol="TCP" localport=443 action="allow" service="any" enable="yes"
-netsh.exe advfirewall firewall add rule name="AB Node Platform 80" dir="in" protocol="TCP" localport=80 action="allow" service="any" enable="yes"
-  
-
+netsh advfirewall set AllProfiles state off
