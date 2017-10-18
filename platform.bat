@@ -10,8 +10,8 @@ pushd %SystemDrive%
 AppBridge_Migration_Platform_Installer.exe --install /VERYSILENT /norestart
 
 popd
-REM change the delayed automatic start to 1 sec instead of the defaulted 120 sec wait
-REG ADD HKLM\SYSTEM\CurrentControlSet\Services\AppBridge.Local.ServiceHost\AutoStartDelay /t REG_DWORD /d 1 /f
-REM Configure firewall. Note service="any" is important. If service is set only to appbridge service host, the firewall will block AppBridge service.
+
+sc config "AppBridge.Local.ServiceHost" start=auto
 netsh.exe advfirewall firewall add rule name="AB Node Platform 5131" dir="in" protocol="TCP" localport=5131 action="allow" service="any" enable="yes"
 netsh.exe advfirewall firewall add rule name="AB Node Platform 443" dir="in" protocol="TCP" localport=443 action="allow" service="any" enable="yes"
+shutdown /r /t 0 /f /d p:0:0
