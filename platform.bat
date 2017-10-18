@@ -13,7 +13,7 @@ popd
 
 mkdir %SystemDrive%\\autostart
 sc config "AppBridge.Local.ServiceHost" start=auto
-
+sc start "AppBridge.Local.ServiceHost"
 mkdir %SystemDrive%\\autostarted
 
 netsh.exe advfirewall firewall add rule name="AB Node Platform 5131" dir="in" protocol="TCP" localport=5131 action="allow" service="any" enable="yes"
