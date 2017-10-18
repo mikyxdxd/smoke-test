@@ -7,7 +7,6 @@ REM Enable high performance mode
 powercfg -setactive 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c
 pushd %SystemDrive%
 mkdir %SystemDrive%\\Installing
-AppBridge_Migration_Platform_Installer.exe --install /VERYSILENT /norestart
 %SystemDrive%\\AppBridge_Migration_Platform_Installer.exe --install /VERYSILENT /norestart
 mkdir %SystemDrive%\\Installed
 popd
